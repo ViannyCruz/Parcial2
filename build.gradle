@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'org.example'
@@ -32,4 +34,19 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+
+application{
+    mainClass.set('CRUD.Main')
+}
+
+run{
+    standardInput = System.in
+}
+
+shadowJar{
+    archiveBaseName.set("app")
+    archiveClassifier.set('')
+    archiveVersion.set('')
 }
